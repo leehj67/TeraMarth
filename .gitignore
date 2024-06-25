@@ -76,3 +76,7 @@ crashlytics-build.properties
 Assets/XRI.meta
 Assets/XR.meta
 Assets/Samples.meta
+/Assets/Oculus
+Assets/Oculus.meta
+/Assets/Resources
+Assets/Resources.meta
