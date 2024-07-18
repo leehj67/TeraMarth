@@ -37,12 +37,10 @@ public class VRUIRay : MonoBehaviour
                 dot.gameObject.SetActive(false);
             }
 
-
             // 4. dot이 충돌 중 일 때 클릭할 수 있도록 한다.
             // 만약 점이 활성화 상태면
             if (dot.gameObject.activeSelf)
             {
-                Debug.Log("2");
                 if (OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger))
                 {
                     // 버튼 스크립트를 가져온다
