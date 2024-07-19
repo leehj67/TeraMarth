@@ -7,9 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 
 public class VRObjectRay : MonoBehaviour
 {
-    // 1. 우선 해당 스크립트를 싱글톤으로 만들었다.
     public static VRObjectRay instance;
-
+    public OVRInput.Button button;
 
     // 2. 마우스 역할을 수행할 게임오브젝트를 준비한다.
     // VR 오른쪽 컨트롤러
@@ -39,7 +38,7 @@ public class VRObjectRay : MonoBehaviour
                 Target.gameObject.SetActive(false);
             }
 
-            if (Target.gameObject.activeSelf && OVRInput.GetDown(OVRInput.Button.Two))
+            if (Target.gameObject.activeSelf && OVRInput.GetDown(button))
             {
                 // 버튼 스크립트를 가져온다
                 Button btn = Target.transform.GetComponent<Button>();

@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Chair
+  - TopTab
+  - Grid
   layers:
   - Default
   - TransparentFX
