@@ -7,6 +7,9 @@ TagManager:
   - Chair
   - TopTab
   - Grid
+  - TrackingObject
+  - Actors
+  - QuestButton
   layers:
   - Default
   - TransparentFX

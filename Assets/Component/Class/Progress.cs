@@ -23,7 +23,7 @@ public class Progress : MonoBehaviour
         
     }
 
-    void stageUpdate()
+    public void stageUpdate()
     {
         GetComponent<Slider>().value = (float)stage / maxState;
     }

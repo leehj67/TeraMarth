@@ -5,11 +5,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class DropBlock : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
-    private GameObject clonedObject;
-    private bool isClonedObjectGrabbed = false;
     private Vector3 tempPos;
     private Quaternion tempRot;
     private Vector3 tempSca;
+    public VRObjectRay vror;
+    public SelectedItem selItem;
     public int itemCode = 0;
 
     void Start()
@@ -26,8 +26,7 @@ public class DropBlock : MonoBehaviour
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         transform.rotation = Quaternion.Euler(transform.rotation.x-90, transform.rotation.y, transform.rotation.z);
-        isClonedObjectGrabbed = true;
-
+        selItem.setItem(itemCode);
     }
 
     private void OnRelease(SelectExitEventArgs args)
@@ -36,9 +35,6 @@ public class DropBlock : MonoBehaviour
         transform.rotation = tempRot;
         transform.localScale = tempSca;
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
-        isClonedObjectGrabbed = false;
-        
-        //Destroy(gameObject, 0.2f);
-        
+        vror.setCondition(true);
     }
 }

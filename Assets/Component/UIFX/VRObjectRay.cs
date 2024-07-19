@@ -3,23 +3,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEngine.GraphicsBuffer;
 
 public class VRObjectRay : MonoBehaviour
 {
     public static VRObjectRay instance;
-    public OVRInput.Button button;
-
-    // 2. 마우스 역할을 수행할 게임오브젝트를 준비한다.
     // VR 오른쪽 컨트롤러
     public Transform rightHand;
-    // 마우스 포인터를 대체할 이미지
-    public GameObject Target;
+    public OVRInput.Button button;
+
+    //public GameObject Target;
     public string TagName;
 
+    private GameObject prev = null;
+    private bool condition = false;
     private void Awake()
     {
         instance = this;
+    }
+
+    public void setCondition(bool _condition)
+    {
+        condition = _condition;
     }
 
     void Update()
@@ -31,22 +35,27 @@ public class VRObjectRay : MonoBehaviour
         {
             if (hit.collider.CompareTag(TagName))
             {
-                Target.gameObject.SetActive(true);
+                if(prev != null && prev != hit.collider.transform.Find("OnRay").gameObject)
+                {
+                    prev.SetActive(false);
+                }
+                prev = hit.collider.transform.Find("OnRay").gameObject;
+                prev.SetActive(true);
             }
-            else
+            else if (prev != null)
             {
-                Target.gameObject.SetActive(false);
+                prev.gameObject.SetActive(false);
+                prev = null;
             }
 
-            if (Target.gameObject.activeSelf && OVRInput.GetDown(button))
+            if (prev != null && prev.gameObject.activeSelf && (OVRInput.GetDown(button) || condition))
             {
-                // 버튼 스크립트를 가져온다
-                Button btn = Target.transform.GetComponent<Button>();
-                // 만약 btn이 null이 아니라면
+                Button btn = prev.transform.GetComponent<Button>();
                 if (btn != null)
                 {
                     btn.onClick.Invoke();
                 }
+                condition = false;
             }
             
         }
