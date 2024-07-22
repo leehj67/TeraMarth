@@ -4211,10 +4211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c172eca4303dd4b8eb1c8c216cfe7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasA: {fileID: 0}
-  canvasB: {fileID: 0}
-  switchButton: {fileID: 1608443466}
-  controllerButton: 0
+  nextCanvas: {fileID: 434214694}
+  controllerButton: -1
 --- !u!114 &1608443466
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4424,9 +4422,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c172eca4303dd4b8eb1c8c216cfe7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasA: {fileID: 0}
-  canvasB: {fileID: 0}
-  switchButton: {fileID: 1634327170}
+  nextCanvas: {fileID: 0}
   controllerButton: 0
 --- !u!114 &1634327170
 MonoBehaviour:
@@ -4562,10 +4558,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c172eca4303dd4b8eb1c8c216cfe7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasA: {fileID: 0}
-  canvasB: {fileID: 0}
-  switchButton: {fileID: 1662627570}
-  controllerButton: 0
+  nextCanvas: {fileID: 1818668461}
+  controllerButton: -1
 --- !u!114 &1662627570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5508,9 +5502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49c172eca4303dd4b8eb1c8c216cfe7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasA: {fileID: 776046149}
-  canvasB: {fileID: 2082711800}
-  switchButton: {fileID: 2114464080}
+  nextCanvas: {fileID: 2082711800}
   controllerButton: -1
 --- !u!114 &2114464080
 MonoBehaviour:
