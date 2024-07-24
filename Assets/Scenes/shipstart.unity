@@ -7067,7 +7067,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 7575800064276246057, guid: ac5da999cac71d8419e8285257fefdfd, type: 3}
   m_PrefabInstance: {fileID: 1156054438}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &773091466
+--- !u!114 &773091465
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7082,7 +7082,8 @@ MonoBehaviour:
   animator: {fileID: 773091464}
   runAnimationStateName: HumanoidRun
   focusAnimationStateName: Focus
-  repeatCount: 15
+  runRepeatCount: 15
+  focusRepeatCount: 2
 --- !u!1001 &779079016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11572,7 +11573,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3785656455627845353, guid: ac5da999cac71d8419e8285257fefdfd, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 773091466}
+      addedObject: {fileID: 773091465}
   m_SourcePrefab: {fileID: 100100000, guid: ac5da999cac71d8419e8285257fefdfd, type: 3}
 --- !u!1001 &1170562181
 PrefabInstance:
