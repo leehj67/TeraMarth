@@ -10,16 +10,18 @@ TagManager:
   - TrackingObject
   - Actors
   - QuestButton
+  - Target
+  - Wall
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Invisible Area
   - Water
   - UI
   - Grabable
   - User
-  - 
+  - None
   - 
   - 
   - 
