@@ -952,7 +952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd93a4536cae7c64ab999671d34f350a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraTransform: {fileID: 362691210}
+  cameraTransform: {fileID: 975909497}
   shakeAmount: 0.7
   decreaseFactor: 1
 --- !u!114 &268451192
