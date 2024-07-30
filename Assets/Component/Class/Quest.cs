@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
@@ -9,8 +10,9 @@ public class Quest : MonoBehaviour
     public HarvestItem hav;
     public Progress prg;
     public GameObject nextButton;
-
+    public bool cheat;
     public string[][] quest;
+    public string nextScene;
 
     void Start()
     {
@@ -135,9 +137,16 @@ public class Quest : MonoBehaviour
 
     public void nextProgress()
     {
+        if (cheat)
+        {
+            SceneManager.LoadScene(nextScene);
+            return;
+        }
+
         if(prg.stage == prg.maxState)
         {
             // 다음씬으로 이동
+            SceneManager.LoadScene(nextScene);
             return;
         }
 

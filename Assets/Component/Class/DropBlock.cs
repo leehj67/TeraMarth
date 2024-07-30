@@ -2,6 +2,12 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.XR.Interaction.Toolkit;
 
+public enum Category
+{
+    vegitable,
+    animal
+}
+
 public class DropBlock : MonoBehaviour
 {
     private XRGrabInteractable grabInteractable;
@@ -11,6 +17,7 @@ public class DropBlock : MonoBehaviour
     public VRObjectRay vror;
     public SelectedItem selItem;
     public int itemCode = 0;
+    public Category category;
 
     void Start()
     {
@@ -25,7 +32,7 @@ public class DropBlock : MonoBehaviour
     private void OnGrab(SelectEnterEventArgs args)
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-        transform.rotation = Quaternion.Euler(transform.rotation.x-90, transform.rotation.y, transform.rotation.z);
+        transform.rotation = Quaternion.Euler(transform.rotation.x+90, transform.rotation.y, transform.rotation.z);
         selItem.setItem(itemCode);
     }
 

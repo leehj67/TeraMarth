@@ -1557,7 +1557,7 @@ GameObject:
   - component: {fileID: 579222838}
   - component: {fileID: 579222837}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Scene Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayInSeconds: 20
-  sceneToLoad: spaceminigame
+  sceneToLoad: preearth
 --- !u!4 &579222838
 Transform:
   m_ObjectHideFlags: 0
