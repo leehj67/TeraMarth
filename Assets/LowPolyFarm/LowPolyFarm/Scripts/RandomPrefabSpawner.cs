@@ -10,10 +10,6 @@ public class RandomPrefabSpawner : MonoBehaviour
 
     private GameObject[] clones = null;
 
-    void Start()
-    {
-    }
-
     public void clean()
     {
         if (clones == null) return;

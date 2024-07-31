@@ -11,10 +11,6 @@ public class PrefabSpawner : MonoBehaviour
 
     private GameObject[,] clones = null;
 
-    void Start()
-    {
-    }
-
     public void clean()
     {
         if (clones == null) return;

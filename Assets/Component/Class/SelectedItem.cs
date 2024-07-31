@@ -6,8 +6,6 @@ using UnityEngine;
 public class SelectedItem : MonoBehaviour
 {
     // -1: 아무것도 없음
-    // 0: 테스트 용도(3초)
-    // [1:감자, 2:꽃, 3:나무, 4:돼지, 5:소, 6:닭, 7:물고기, 8:새우]
     private int itemCode = -1;
     private Category category = Category.None;
 
@@ -40,22 +38,6 @@ public class SelectedItem : MonoBehaviour
     public Category getCategory()
     {
         return category;
-    }
-
-    public enum Farm
-    {
-        corn,
-        pumpkin,
-        tomato,
-        carrot,
-        cabbage,
-        salad,
-        sunflower,
-        bull,
-        chicken,
-        sheep,
-        horse,
-        goat
     }
 
     public static float getItemTimer(int index)
