@@ -4,6 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public enum Category
 {
+    None,
     vegitable,
     animal
 }
@@ -33,7 +34,7 @@ public class DropBlock : MonoBehaviour
     {
         GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         transform.rotation = Quaternion.Euler(transform.rotation.x+90, transform.rotation.y, transform.rotation.z);
-        selItem.setItem(itemCode);
+        selItem.setItem(itemCode, category);
     }
 
     private void OnRelease(SelectExitEventArgs args)

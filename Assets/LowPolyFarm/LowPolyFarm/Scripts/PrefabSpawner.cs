@@ -9,21 +9,42 @@ public class PrefabSpawner : MonoBehaviour
     public int numberOfColumns = 5; // 생성할 오브젝트의 열 수
     public float spacing = 2.0f; // 오브젝트 사이의 간격
 
+    private GameObject[,] clones = null;
+
     void Start()
     {
-        Vector3 startPosition = transform.position; // 부모 오브젝트의 위치를 시작 위치로 사용
-        ShufflePrefabs(); // 프리팹 배열을 무작위로 섞음
+    }
+
+    public void clean()
+    {
+        if (clones == null) return;
 
         for (int row = 0; row < numberOfRows; row++)
         {
             for (int col = 0; col < numberOfColumns; col++)
             {
-                // 무작위로 선택된 프리팹을 생성하고 위치를 설정
-                GameObject selectedPrefab = prefabs[Random.Range(0, prefabs.Length)];
-                GameObject obj = Instantiate(selectedPrefab, new Vector3(startPosition.x + col * spacing, startPosition.y, startPosition.z + row * spacing), Quaternion.identity, transform);
+                Destroy(clones[row, col]);
+            }
+        }
+        clones = null;
+    }
+
+    public void createPrefabs(int index)
+    {
+        if (clones != null) return;
+
+        Vector3 startPosition = transform.position; // 부모 오브젝트의 위치를 시작 위치로 사용
+        clones = new GameObject[numberOfRows,numberOfColumns];
+
+        for (int row = 0; row < numberOfRows; row++)
+        {
+            for (int col = 0; col < numberOfColumns; col++)
+            {
+                GameObject selectedPrefab = prefabs[index];
+                clones[row, col] = Instantiate(selectedPrefab, new Vector3(startPosition.x + col * spacing, startPosition.y, startPosition.z + row * spacing), Quaternion.identity, transform);
 
                 // 생성된 프리팹을 현재 스크립트가 있는 오브젝트의 자식으로 설정
-                obj.transform.parent = this.transform;
+                clones[row, col].transform.parent = this.transform;
             }
         }
     }

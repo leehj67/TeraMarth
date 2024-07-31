@@ -9,15 +9,17 @@ public class SelectedItem : MonoBehaviour
     // 0: 테스트 용도(3초)
     // [1:감자, 2:꽃, 3:나무, 4:돼지, 5:소, 6:닭, 7:물고기, 8:새우]
     private int itemCode = -1;
+    private Category category = Category.None;
 
     public GameObject screen;
     public Material[] materials;
     private float delay = 0.0f;
     private bool prev = false;
 
-    public void setItem(int index)
+    public void setItem(int _itemCode, Category _category)
     {
-        itemCode = index;
+        itemCode = _itemCode;
+        category = _category;
     }
 
     public Material getMat(int index)
@@ -35,19 +37,43 @@ public class SelectedItem : MonoBehaviour
         return itemCode;
     }
 
+    public Category getCategory()
+    {
+        return category;
+    }
+
+    public enum Farm
+    {
+        corn,
+        pumpkin,
+        tomato,
+        carrot,
+        cabbage,
+        salad,
+        sunflower,
+        bull,
+        chicken,
+        sheep,
+        horse,
+        goat
+    }
+
     public static float getItemTimer(int index)
     {
         if (index < 0) return -1f;
 
-        if (index == 0) return 3.0f;    // 테스트:3초 재배
-        if (index == 1) return 20.0f;   // 감자:  20초 재배
-        if (index == 2) return 8.0f;    // 꽃:    8초 재배
-        if (index == 3) return 120.0f;  // 나무:  120초 재배
-        if (index == 4) return 30.0f;   // 돼지:  30초 재배
-        if (index == 5) return 40.0f;   // 소:    40초 재배
-        if (index == 6) return 10.0f;   // 닭:    10초 재배
-        if (index == 7) return 45.0f;   // 물고기:45초 재배
-        if (index == 8) return 25.0f;   // 새우:  25초 재배
+        if (index == 0) return 10.0f;   // 옥수수:   10초 재배
+        if (index == 1) return 12.0f;   // 호박:     12초 재배
+        if (index == 2) return 8.0f;    // 토마토:   8초 재배
+        if (index == 3) return 16.0f;   // 당근:     16초 재배
+        if (index == 4) return 20.0f;   // 양배추:   20초 재배
+        if (index == 5) return 24.0f;   // 샐러드:   24초 재배
+        if (index == 6) return 40.0f;   // 해바라기: 40초 재배
+        if (index == 7) return 50.0f;   // 소:       50초 재배
+        if (index == 8) return 40.0f;   // 닭:       40초 재배
+        if (index == 9) return 60.0f;   // 양:       60초 재배
+        if (index == 10) return 120.0f; // 말:       120초 재배
+        if (index == 11) return 75.0f;  // 염소:     75초 재배
 
         return -1f;
     }

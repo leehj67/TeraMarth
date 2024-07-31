@@ -17,11 +17,11 @@ public class HarvestItem : MonoBehaviour
         }
     }
 
-    public void incScore(int index)
+    public void incScore(int index, int point = 1)
     {
         if(0 <= index && index < score.Length)
         {
-            score[index] += 1;
+            score[index] += point;
         }
     }
 
