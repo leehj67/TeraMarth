@@ -10,6 +10,10 @@ public class BatchItem : MonoBehaviour
     public SelectedItem selItem;
     public Text curTime;
     public GameObject mappingSpawner;
+    public DestroyEffects dEffects;
+    public GameObject setEffect;
+    public GameObject timerEffect;
+    public GameObject harvestEffect;
 
     // itemCode는 SelectedItem.cs 참고
     private int itemCode = -1;
@@ -24,6 +28,10 @@ public class BatchItem : MonoBehaviour
     private bool updateTimer = false;
     private int score;
     private float time;
+    private GameObject sef = null;
+    private GameObject tef = null;
+    private GameObject hef = null;
+    private bool isharv = false;
 
     void OnDisable()
     {
@@ -66,6 +74,8 @@ public class BatchItem : MonoBehaviour
             if (isSuperBlock) score = scoreX;
             else score = 1;
 
+            hef = Instantiate(harvestEffect, transform.position, Quaternion.identity);
+            dEffects.destroyEffects(hef);
             harv.incScore(itemCode, score);
             timer = -1.0f;
             curtimer = timer;
@@ -84,6 +94,8 @@ public class BatchItem : MonoBehaviour
             return;
         }
 
+        sef = Instantiate(setEffect, transform.position, Quaternion.identity);
+        dEffects.destroyEffects(sef);
         itemCode = selItem.getItem();
         
         // 스킨 입히기
@@ -112,7 +124,13 @@ public class BatchItem : MonoBehaviour
         }
         if(curtimer < 0)
         {
-            curTime.text = string.Format("수확");
+            if (!isharv)
+            {
+                isharv = true;
+                curTime.text = string.Format("수확");
+                tef = Instantiate(timerEffect, transform.position, Quaternion.identity);
+                dEffects.destroyEffects(tef);
+            }
             return;
         }
         min = (int)(curtimer / 60.0f);

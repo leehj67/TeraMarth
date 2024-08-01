@@ -14,6 +14,7 @@ public class Quest : MonoBehaviour
     public string[][] quest;
     public string nextScene;
     public GameObject[] upgradeObjects;
+    public ParticleSystem congratuation;
 
 // 옥수수:   10초 재배
 // 호박:     12초 재배
@@ -163,6 +164,8 @@ public class Quest : MonoBehaviour
 
     public void nextProgress()
     {
+        congratuation.Play();
+
         if (cheat)
         {
             SceneManager.LoadScene(nextScene);

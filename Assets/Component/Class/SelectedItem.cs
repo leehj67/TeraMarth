@@ -22,7 +22,7 @@ public class SelectedItem : MonoBehaviour
 
     public Material getMat(int index)
     {
-        if(0 < index && index < materials.Length && materials[index] != null)
+        if(0 <= index && index < materials.Length && materials[index] != null)
         {
             return materials[index];
         }
