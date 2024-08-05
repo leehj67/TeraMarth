@@ -179,6 +179,10 @@ public class Quest : MonoBehaviour
             return;
         }
         
+        if(GetComponent<AudioSource>() != null)
+        {
+            GetComponent<AudioSource>().Play();
+        }
         upgradeObjects[prg.stage].SetActive(true);
         
         prg.stage++;

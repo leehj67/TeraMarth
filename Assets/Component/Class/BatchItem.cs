@@ -14,6 +14,9 @@ public class BatchItem : MonoBehaviour
     public GameObject setEffect;
     public GameObject timerEffect;
     public GameObject harvestEffect;
+    public GameObject setSound;
+    public GameObject timerSound;
+    public GameObject harvestSound;
 
     // itemCode는 SelectedItem.cs 참고
     private int itemCode = -1;
@@ -31,6 +34,9 @@ public class BatchItem : MonoBehaviour
     private GameObject sef = null;
     private GameObject tef = null;
     private GameObject hef = null;
+    private GameObject ssd = null;
+    private GameObject tsd = null;
+    private GameObject hsd = null;
     private bool isharv = false;
 
     void OnDisable()
@@ -74,6 +80,12 @@ public class BatchItem : MonoBehaviour
             if (isSuperBlock) score = scoreX;
             else score = 1;
 
+            if(GetComponent<AudioSource>() != null)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            hsd = Instantiate(harvestSound, transform.position, Quaternion.identity);
+            dEffects.destroyEffects(hsd);
             hef = Instantiate(harvestEffect, transform.position, Quaternion.identity);
             dEffects.destroyEffects(hef);
             harv.incScore(itemCode, score);
@@ -97,7 +109,14 @@ public class BatchItem : MonoBehaviour
         sef = Instantiate(setEffect, transform.position, Quaternion.identity);
         dEffects.destroyEffects(sef);
         itemCode = selItem.getItem();
-        
+
+        if (staticCategory == Category.animal)
+        {
+            dEffects.play(itemCode - 7);
+        }
+        ssd = Instantiate(setSound, transform.position, Quaternion.identity);
+        dEffects.destroyEffects(ssd);
+
         // 스킨 입히기
         gameObject.GetComponent<Renderer>().material = selItem.getMat(itemCode);
         spawnObjects();
@@ -130,6 +149,8 @@ public class BatchItem : MonoBehaviour
                 curTime.text = string.Format("수확");
                 tef = Instantiate(timerEffect, transform.position, Quaternion.identity);
                 dEffects.destroyEffects(tef);
+                tsd = Instantiate(timerSound, transform.position, Quaternion.identity);
+                dEffects.destroyEffects(tsd);
             }
             return;
         }
