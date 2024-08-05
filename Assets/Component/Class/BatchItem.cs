@@ -126,7 +126,7 @@ public class BatchItem : MonoBehaviour
 
         if (isSuperBlock) time = timeX;
         else time = 1.0f;
-
+        isharv = false;
         timer = SelectedItem.getItemTimer(itemCode) * time;
         curtimer = timer;
     }
